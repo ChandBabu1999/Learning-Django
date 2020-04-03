@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+
+{% block content%}
+<h1 style="font-size: 1.5cm;">{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li style="font-size: 1cm;">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'app:detail' question.id %}">Vote again?</a>
+
+{% endblock%}

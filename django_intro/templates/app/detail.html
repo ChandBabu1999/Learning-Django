@@ -2,13 +2,34 @@
 
 {% block content %}
 
-    <h1>{{ question.question_text }}</h1>
+    <!--h1>{{ question.question_text }}</h1>
     
     <ul>
     <h3>Choices</h3>
     {% for choice in question.choice_set.all %}
         <li>{{ choice.choice_text }}</li>
     {% endfor %}
-    </ul>
+    </ul-->
 
+<h1>{{ question.question_text }}</h1>
+<ul>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'app:vote' question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+        {% endfor %}
+        {% if question.choice_set.all %}
+        <input type="submit" value="Vote">
+        {%else%}
+            <p> No choices available to vote.!</p>
+        {% endif %}
+    </form>
+</ul>
+<br><br>
+<a href="{% url 'app:index' %}">
+    Back to Questions
+</a>
 {% endblock %}
