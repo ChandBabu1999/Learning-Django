@@ -1,22 +1,20 @@
 {% extends './base.html' %}
 {% block content %}
 
-    {{message}}<br><br>
+    <h1 id="main_header">(Home Page) Hello, world. You're at the App's index.</h1>
+    <ul class="question_list">
     {% if latest_question_list %}
-        <ul>
+        
         {% for question in latest_question_list %}
             <!--li><a href="/app/{{ question.id }}/">{{ question.question_text }}</a></li-->
-            <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1cm;">
-                <a href="{% url 'app:detail' question.id %}">
-                    {{ question.question_text }}
-                </a>
-            </li>
+            <li><a href="{% url 'app:detail' question.id %}">
+                    {{ question.question_text }}</a> </li>
             <br>
         {% endfor %}
-        </ul>
+       
     {% else %}
-        <p>No polls are available.</p>
+        <p>No App(Question list) are available.</p>
     {% endif %}
-
+    </ul>
 
 {% endblock %}

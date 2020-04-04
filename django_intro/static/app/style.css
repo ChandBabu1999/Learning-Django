@@ -1,0 +1,32 @@
+
+body {
+    background-color: cyan;
+    padding-top: initial;
+    text-indent: initial;
+    text-align: left;
+    font-size: 32px;
+    /* background: white url("images/first_img.jpg"); */
+}
+a{
+    text-decoration-color: lawngreen;
+}
+ul{
+    color: blue;
+}  
+.question_list{
+    text-indent: 2cm;
+    color: blue;
+}
+h1{
+    color: green;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: verdana;
+}
+p{
+    font-family: verdana;
+}
+
+#main_header{
+    text-indent: 1cm;
+}
