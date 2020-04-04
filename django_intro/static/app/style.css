@@ -5,7 +5,8 @@ body {
     text-indent: initial;
     text-align: left;
     font-size: 32px;
-    /* background: white url("images/first_img.jpg"); */
+    /* background: white url("images/backgound_image.jpg"); */
+    /* create subdirectory 'image' under directory 'static/app/' */
 }
 a{
     text-decoration-color: lawngreen;
